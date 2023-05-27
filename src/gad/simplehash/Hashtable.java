@@ -19,6 +19,10 @@ public class Hashtable<K, V> {
         this.a = a;
         // TODO: Change and complete
         table = (List<Pair<K, V>>[]) new List[size];
+
+        for (int i = 0; i < size; i++) {
+            table[i] = new LinkedList<>();
+        }
     }
 
     public List<Pair<K, V>>[] getTable() {
