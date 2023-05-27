@@ -20,7 +20,7 @@ public class Hashtable<K, V> {
     }
 
     public static int getNextPowerOfTwo(int i) {
-        s = 1;
+        int s = 1;
         while (s < i){
             s = s * 2;
         }
