@@ -57,10 +57,18 @@ public class Hashtable<K, V> {
     }
 
     public void insert(K k, V v, ModuloHelper mH) {
+        int index = h(k, mH);
+        table[index].add(new Pair<>(k, v));
     }
 
     public boolean remove(K k, ModuloHelper mH) {
-        return false;
+        int index = h(k, mH);
+        List<Pair<K, V>> list = table[index];
+        int initialSize = list.size();
+
+        list.removeIf(pair -> pair.getClass().equals(k));
+
+        return list.size() < initialSize;
     }
 
     public Optional<V> find(K k, ModuloHelper mH) {
