@@ -66,7 +66,7 @@ public class Hashtable<K, V> {
         List<Pair<K, V>> list = table[index];
         int initialSize = list.size();
 
-        list.removeIf(pair -> pair.getClass().equals(k));
+        list.removeIf(pair -> pair.one().equals(k));
 
         return list.size() < initialSize;
     }
