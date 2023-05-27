@@ -47,7 +47,13 @@ public class Hashtable<K, V> {
 
     public int h(K k, ModuloHelper mH) {
         byte[] x = bytes(k);
-        return 0;
+        int sum = 0;
+        for (int i = 0; i < x.length; i++) {
+            byte currentByte = x[i];
+            int currentMultiplier = a[i % a.length]; // Зацикливание использования вектора a
+            sum += (currentByte & 0xFF) * currentMultiplier; // Побитовое умножение
+        }
+        return fastModulo(sum, size);
     }
 
     public void insert(K k, V v, ModuloHelper mH) {
