@@ -72,11 +72,30 @@ public class Hashtable<K, V> {
     }
 
     public Optional<V> find(K k, ModuloHelper mH) {
+        int index = h(k,mH);
+        List<Pair<K, V>> list = table[index];
+
+        for (Pair<K, V> pair : list) {
+            if (pair.one().equals(k)) {
+                return Optional.of(pair.two());
+            }
+        }
+
         return Optional.empty();
     }
 
     public List<V> findAll(K k, ModuloHelper mH) {
-        return null;
+        int index = h(k, mH);
+        List<Pair<K, V>> list = table[index];
+        List<V> result = new ArrayList<>();
+
+        for (Pair<K, V> pair : list) {
+            if (pair.one().equals(k)) {
+                result.add(pair.two());
+            }
+        }
+
+        return result;
     }
 
     public Stream<Pair<K, V>> stream() {
