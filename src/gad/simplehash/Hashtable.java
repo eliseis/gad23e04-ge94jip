@@ -20,7 +20,11 @@ public class Hashtable<K, V> {
     }
 
     public static int getNextPowerOfTwo(int i) {
-        return 0;
+        s = 1;
+        while (s < i){
+            s = s * 2;
+        }
+        return s;
     }
 
     public static int fastModulo(int i, int divisor) {
