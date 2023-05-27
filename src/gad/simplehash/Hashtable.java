@@ -5,14 +5,20 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Stream;
+import java.util.LinkedList;
+import java.util.ArrayList;
 
 public class Hashtable<K, V> {
+    private int size;
+    private int[] a;
     private List<Pair<K, V>>[] table;
 
     @SuppressWarnings("unchecked")
     public Hashtable(int minSize, int[] a) {
+        this.size = getNextPowerOfTwo(minSize);
+        this.a = a;
         // TODO: Change and complete
-        table = (List<Pair<K, V>>[]) new List[0];
+        table = (List<Pair<K, V>>[]) new List[size];
     }
 
     public List<Pair<K, V>>[] getTable() {
