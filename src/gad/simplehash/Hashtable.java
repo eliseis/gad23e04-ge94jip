@@ -38,7 +38,7 @@ public class Hashtable<K, V> {
     }
 
     public static int fastModulo(int i, int divisor) {
-        return 0;
+        return i & (divisor - 1);
     }
 
     private byte[] bytes(K k) {
